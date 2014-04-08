@@ -66,7 +66,7 @@
  '(tabbar-separator (quote (0.5)))						;; tabbar的间隔符号宽度
  '(menu-bar-mode t)								;; don't show menubar
  '(set-scroll-bar-mode nil)							;; don't show scrollbar
- '(indicate-buffer-boundaries 'right)						;; 在fringe上显示一个小箭头指示当前buffer的边界
+ '(indicate-buffer-boundaries 'left)						;; 在fringe上显示一个小箭头指示当前buffer的边界
  '(track-eol t)
  '(font-lock-maximum-decoration t)
  '(global-auto-revert-mode t)
