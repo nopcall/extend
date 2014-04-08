@@ -1,0 +1,52 @@
+;; -*- Emacs-Lisp -*-
+
+;; Time-stamp: <2010-11-26 12:48:56 Friday by taoshanwen>
+
+;;(am-add-hooks
+;; `(lisp-mode-hook emacs-lisp-mode-hook lisp-interaction-mode-hook cperl-mode-hook)
+;; 'turn-on-eldoc-mode)
+(add-hook 'lisp-mode-hook   'turn-on-eldoc-mode)		;;代码折叠
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'cperl-mode-hook       'turn-on-eldoc-mode)
+(add-hook 'lisp-indent-mode-hook         'turn-on-eldoc-mode)
+(add-hook 'c++-mode-hook        'turn-on-eldoc-mode)
+(add-hook 'js-mode-hook         'turn-on-eldoc-mode)
+
+(defun eldoc-settings ()
+  "settings for `eldoc'."
+  (defun eldoc-print-current-symbol-info-anyway ()
+    "Print current symbol info."
+    (interactive)
+    (condition-case err
+        (if eldoc-documentation-function
+            (eldoc-message (funcall eldoc-documentation-function))
+          (let* ((current-symbol (eldoc-current-symbol))
+                 (current-fnsym  (eldoc-fnsym-in-current-sexp))
+                 (doc (cond
+                       ((null current-fnsym)
+                        nil)
+                       ((eq current-symbol (car current-fnsym))
+                        (or (apply 'eldoc-get-fnsym-args-string
+                                   current-fnsym)
+                            (eldoc-get-var-docstring current-symbol)))
+                       (t
+                        (or (eldoc-get-var-docstring current-symbol)
+                            (apply 'eldoc-get-fnsym-args-string
+                                   current-fnsym))))))
+            (eldoc-message doc)))
+      ;; This is run from post-command-hook or some idle timer thing,
+      ;; so we need to be careful that errors aren't ignored.
+      (error (message "eldoc error: %s" err))))
+
+  (defun eldoc-pre-command-refresh-echo-area ())
+
+  (setq eldoc-idle-delay 0.5)
+
+  (eldoc-add-command 'describe-symbol-at-point 'View-scroll-half-page-backward 'l-command
+                     'save-buffer-sb 'switch-to-other-buffer)
+  (eldoc-remove-command 'goto-paren))
+
+(eval-after-load "eldoc"
+  `(eldoc-settings))
+
+(provide 'eldoc-settings)

@@ -1,0 +1,9 @@
+secret-extend.el
+.persp-saves/*
+.projectile-bookmarks.eld
+\#*
+.*.lock
+*~
+*.elc
+*.cache
+.\#*
