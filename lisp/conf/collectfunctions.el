@@ -30,17 +30,18 @@ occurence of CHAR."
   (menu-bar-mode -1)
   (menu-bar-mode 1)
   (message "--- *GTK* Menubar (╯‵□′)╯︵┻━┻ Update Success ---"))
+(add-hook 'after-init-hook 'menu-update)					;; update immediately after emacs startup
 (global-set-key (kbd "M-z") 'menu-update)					;; update the gtk menubar
 ;;}}}
 
 ;;{{{ 复制行
 (defun copy-line (&optional arg)
- "Save current line into Kill-Ring without mark the line"
- (interactive "P")
- (let ((beg (line-beginning-position))
+  "Save current line into Kill-Ring without mark the line"
+  (interactive "P")
+  (let ((beg (line-beginning-position))
 	(end (line-end-position arg)))
- (copy-region-as-kill beg end))
- )
+    (copy-region-as-kill beg end))
+  )
 (global-set-key (kbd "C-c C-w") 'copy-line)
 ;;}}}
 
