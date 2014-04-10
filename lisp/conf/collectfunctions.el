@@ -23,18 +23,7 @@ occurence of CHAR."
 (global-set-key (kbd "C-z") 'vif-go-to-char-forward)				;; 向前找某字符 跟vi下的f键 相似
 ;;}}}
 
-;;{{{ Update menubar for gtk version of emacs in linux
-(defun menu-update nil
-  "Update MenuBar to fix emacs-gtk menu disappear contents."
-  (interactive)
-  (menu-bar-mode -1)
-  (menu-bar-mode 1)
-  (message "--- *GTK* Menubar (╯‵□′)╯︵┻━┻ Update Success ---"))
-(add-hook 'after-init-hook 'menu-update)					;; update immediately after emacs startup
-(global-set-key (kbd "M-z") 'menu-update)					;; update the gtk menubar
-;;}}}
-
-;;{{{ 复制行
+;;{{{ Copy-Line
 (defun copy-line (&optional arg)
   "Save current line into Kill-Ring without mark the line"
   (interactive "P")
@@ -45,7 +34,7 @@ occurence of CHAR."
 (global-set-key (kbd "C-c C-w") 'copy-line)
 ;;}}}
 
-;;{{{ 复制词
+;;{{{ Copy-Word
 (defun copy-word (&optional arg)
  "Copy words at point"
  (interactive "P")
@@ -55,7 +44,7 @@ occurence of CHAR."
  )
 ;;}}}
 
-;;{{{ 复制段
+;;{{{ Copy-Paragraph
 (defun copy-paragraph (&optional arg)
  "Copy paragraphes at point"
  (interactive "P")
@@ -65,7 +54,7 @@ occurence of CHAR."
  )
 ;;}}}
 
-;;{{{ add new line above current line, don't worry about the cursor
+;;{{{ Add new line above current line, don't worry about the cursor
 (defun newline-up nil
   "open new line up current line"
   (interactive)
@@ -74,15 +63,16 @@ occurence of CHAR."
   (backward-char))
 ;;}}}
 
-;;{{{ 在文档里插入时间，用户名还有系统的信息
+;;{{{ Insert date, username, system information
 (defun my-stamp (&optional arg)
   "Insert current date, user, and system information.
 With optional argument ARG, use \"*Created: -- *\" format."
   (interactive "*P")
   ;; Get this from time-stamp-format somehow?
-  (let ((string (format " %s %s on %s "
-                        (format-time-string " %04y-%02m-%02d %02H:%02M:%02S")
+  (let ((string (format " %s by %s on %s %s"
+                        (format-time-string " %b %02d '%02y at %02H:%02M")
                         user-login-name
+			system-type
                         system-name)))
     (if arg (setq string (format "*Creation: %s*" string)))
     (if (interactive-p)
@@ -90,16 +80,8 @@ With optional argument ARG, use \"*Created: -- *\" format."
       string)))
 ;;}}}
 
-;;{{{ insert time stamp
-(defun my-timestamp ()
-  "Insert the \"Time-stamp: <>\" string at point."
-  (interactive)
-  (if (interactive-p)
-      (insert " Time-stamp: <>")
-    " Time-stamp: <>"))
-;;}}}
-
-;;{{{ find the longest line of current buffer
+(format "%s" system-type)
+;;{{{ Find the longest line of current buffer
 (defun my-longest-line (&optional goto)
   "Find visual length (ie in columns) of longest line in buffer.
 If optional argument GOTO is non-nil, go to that line."
@@ -130,7 +112,7 @@ If optional argument GOTO is non-nil, go to that line."
       (if goto (goto-line maxline)))))
 ;;}}}
 
-;;{{{ 打印出我的键盘图，很酷吧－全部热键都显示出来，呵呵
+;;{{{ display my hotkeys in a table
 (defun my-keytable (arg)
   "Print the key bindings in a tabular form.
 Argument ARG Key."
@@ -334,7 +316,7 @@ Argument ARG paren."
 ;;;}}}
 
 ;;{{{ Navigate Brackets
-;;stolen frome ergoemacs http://ergoemacs.org/emacs/emacs_navigating_keys_for_brackets.html
+;; stolen frome ergoemacs http://ergoemacs.org/emacs/emacs_navigating_keys_for_brackets.html
 (defun ergoemacs-forward-open-bracket ()
   "Move cursor to the next occurrence of left bracket or quotation mark."
   (interactive)

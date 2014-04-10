@@ -60,13 +60,8 @@
 (global-set-key (kbd "C-x C-;") 'pop-global-mark)
 (global-set-key (kbd "C-.") 'ace-jump-char-mode)				;; ace-jump-char-mode
 (global-set-key (kbd "C-,") 'ace-jump-word-mode)
-
 ;;(define-key global-map (kbd "C-c SPC") 'ace-jump-line-mode)
-;;(define-key global-map (kbd "C-M-j") 'ace-jump-word-mode)
-;;(define-key global-map (kbd "C-.") 'ace-jump-char-mode)
 ;;(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
-;;(define-key viper-vi-global-user-map (kbd "SPC") 'ace-jump-mode)		;; If you use viper mode :
-;;(define-key evil-normal-state-map (kbd "SPC") 'ace-jump-mode)			;; If you use evil
 
 ;;(global-set-key (kbd "") 'tabbar-backward-group)				;; for tabbar-mode
 ;;(global-set-key (kbd "") 'tabbar-forward-group)

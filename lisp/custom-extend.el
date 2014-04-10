@@ -55,7 +55,7 @@
  '(blink-cursor-mode nil)							;; do not cursor blink
  '(require-final-newline nil)							;; 不自动添加换行符到末尾, 有些情况会出现错误
  '(fill-column 80)								;; 设置80行自动换行 只在text-mode有效果
- '(mouse-avoidance-mode (quote animate) nil (avoid))				;; 鼠标躲避光标
+ '(mouse-avoidance-mode (quote exile) nil (avoid))				;; 鼠标躲避光标 animate
  ;; '(resize-mini-windows nil t)						;; this make some error whit ido-vertical-mode
  ;; '(sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ ]\\)\\)[]*")	;; 会引起help模式下字符的问题
  '(session-use-package t nil (session))
