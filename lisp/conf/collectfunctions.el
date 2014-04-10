@@ -65,17 +65,6 @@ occurence of CHAR."
  )
 ;;}}}
 
-;;{{{ theme load
-(defun zenburn ()
-  "Load Zenburn theme."
-  (interactive)
-  (if (fboundp 'load-theme)
-      (load-theme 'zenburn t)
-    (error "Can't Load theme")
-    )
-  )
-;;}}}
-
 ;;{{{ add new line above current line, don't worry about the cursor
 (defun newline-up nil
   "open new line up current line"
