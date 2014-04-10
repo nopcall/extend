@@ -36,7 +36,7 @@
 ;;;===========================================================================
 
 (custom-set-variables
- ;; '(custom-enabled-themes '(zenburn))
+ '(custom-enabled-themes '(zenburn))
  ;; '(custom-enabled-themes '(solarized-dark))
  )
 
