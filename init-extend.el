@@ -40,7 +40,7 @@
     (require 'irony-extend)							;; irony-mode first consider
   (if (executable-find "clang-complete")
       (progn
-	(setq clang-compiled-async-detect t)					;; auto-complete-clang-async
+	(setq clang-completion-async-detect t)					;; auto-complete-clang-async
 	(require 'ac-clang-extend))
     (progn
       (setq clang-completion-async-detect nil)					;; auto-complete-clang
