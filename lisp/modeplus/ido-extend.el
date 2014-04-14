@@ -4,7 +4,6 @@
 
 ;; This file come from emacs/rocks(https://github.com/magnars/expand-region.el.git)
 
-
 (setq ido-use-virtual-buffers nil)						;; Interactively Do Things
 (setq ido-enable-prefix nil
       ido-enable-flex-matching t
@@ -39,8 +38,6 @@
         ((looking-back "~/") (insert "projects/"))
         ((looking-back "/") (insert "~/"))
         (:else (call-interactively 'self-insert-command)))))			;; Go straight home
-
-
 
    (define-key ido-file-completion-map (kbd "C-w") 'ido-delete-backward-updir)	;; Use C-w to go back up a dir to better match normal usage of C-w
    (define-key ido-file-completion-map
