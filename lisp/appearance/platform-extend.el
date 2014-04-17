@@ -1,30 +1,24 @@
 ;;http://www.dotemacs.de/multiemacs.html emacs configuration manuly
 ;;
 (cond
-     ((string-match "GNU" (emacs-version))
-        (message "Customizing GNU Emacs. <(▰▰￣▽￣▰▰)>")
-	;; GNU/EMACs
-	(cond
-         ; all the common things for different OS start here
-             ((string-match "linux" system-configuration)
-	      ;; OS Linux
-	      (message "Customizing GNU Emacs for Linux. (●'◡'●)ﾉ♥")
-
-	     )
-	     ((string-match "darwin" system-configuration)
-	      ;; OS Darwin
-                (message "Customizing GNU Emacs for darwin. o<<(≧口≦)>>o")
-
-		)
-             ((string-match "nt4" system-configuration)
-	      ;; OS Windows
-                (message "Customizing GNU Emacs for Win NT. (╯‵□′)╯︵┻━┻")
-
-	     )))
-     ((string-match "XEmacs" (emacs-version))
-      ;; XEmacs
-      (message "customizing XEmacs. (●'◡'●)ﾉ♥")
-      )
-)
+ ((string-match "GNU" (emacs-version))						;; GNU/EMACs
+  (message "<(▰▰￣▽￣▰▰)> Customizing GNU Emacs")
+  (cond
+   ((string-match "linux" system-configuration)
+    (message "(●'◡'●)ﾉ♥ Customizing GNU Emacs for *Linux*")
+    ;; do what you want
+    )
+   ((string-match "darwin" system-configuration)
+    (message "o<<(≧口≦)>>o Customizing GNU Emacs for *Darwin*")
+    ;; do what you want
+    )
+   ((string-match "nt4" system-configuration)
+    (message "(╯‵□′)╯︵┻━┻ Customizing GNU Emacs for *WinNT*")
+    ;; do what you want
+    )))
+ ((string-match "XEmacs" (emacs-version))					;; XEmacs
+  (message "(●'◡'●)ﾉ♥ Customizing XEmacs")
+  )
+ )
 
 (provide 'platform-extend)

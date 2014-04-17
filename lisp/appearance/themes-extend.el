@@ -22,26 +22,25 @@
       `((top . 16) (left . 0) (width . 82) (height . 40))			;; (menu-bar-lines . 20) (tool-bar-lines . 20)
       )										;; default frame size
 
-(defun menu-update nil
+(defun gtk-menu-update nil
   "Update MenuBar to fix emacs-gtk menu disappear contents."
   (interactive)
   (menu-bar-mode -1)
   (menu-bar-mode 1)
-  (message "*GTK* Menubar (╯‵□′)╯︵┻━┻ Update Success-"))			;; Update menubar for gtk version of emacs in linux
-(add-hook 'after-init-hook 'menu-update)					;; Update immediately after emacs startup
-(global-set-key (kbd "M-z") 'menu-update)
+  (message "(╯‵□′)╯︵┻━┻ *GTK* menubar update success"))			;; Update menubar for gtk version of emacs in linux
+(add-hook 'after-init-hook 'gtk-menu-update)					;; Update immediately after emacs startup
+(global-set-key (kbd "M-z") 'gtk-menu-update)
 
 ;;;===========================================================================
 ;;; custom setting
 ;;;===========================================================================
-
 (custom-set-variables
  '(custom-enabled-themes '(zenburn))
  ;; '(custom-enabled-themes '(solarized-dark))
  )
 
 (custom-set-faces
- '(cursor ((t (:background "#d33682"))))					;; (magenta (if srgb "#d33682" "#c61b6e")) ; (0.7774 0.1080 0.4352)
+ '(cursor ((t (:background "#d33682"))))
  )
 
 (provide 'themes-extend)

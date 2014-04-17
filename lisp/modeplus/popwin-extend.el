@@ -4,7 +4,7 @@
 ;;popwin-mode===================================================================
 (require-package 'popwin)	            					;; 在当前buffer弹出*help*等buffer并能用C-g关闭，很实用
 (require 'popwin)
-(popwin-mode 1)
+(popwin-mode t)
 
 (setq display-buffer-function 'popwin:display-buffer)
 (setq popwin:special-display-config

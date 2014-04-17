@@ -1,3 +1,4 @@
+;;; http://zhuoqiang.me/torture-emacs.html
 (defun extend-font-existsp (font)
   (if (null (x-list-fonts font))
       nil t))
@@ -14,7 +15,7 @@
 			&optional chinese-font-size)
   "english-font-size could be set to \":pixelsize=18\" or a integer.
 If set/leave chinese-font-size to nil, it will follow english-font-size"
-  (require 'cl)									;; for find if
+  (require 'cl)
   (let ((en-font (extend-make-font-string
                   (find-if #'extend-font-existsp english-fonts)
                   english-font-size))
@@ -45,11 +46,11 @@ If set/leave chinese-font-size to nil, it will follow english-font-size"
    ;; english fonts
    '("Ubuntu Mono" "Monaco" "Monospace" "Source Code Pro" "Inconsolata" "Consolas" "DejaVu Sans Mono" "Courier New") ":pixelsize=18"
    ;; chinese fonts
-   '("Droid Sans" "Microsoft Yahei" "Hei" "黑体" "新宋体" "宋体")))
+   '("Microsoft Yahei" "Hei" "黑体" "新宋体" "宋体")))
 
 (if window-system
     (progn (extend-default-fonts))
-  nil)
+  (message "（╯－＿－）╯╧╧ Run in terminal will not set fonts for emacs."))
 
 (add-hook 'after-make-frame-hook 'extend-default-fonts)				;; for emacs daemon mode
 

@@ -4,8 +4,15 @@
 ;;; Code:
 
 ;; Plugins configuration =======================================================
-(add-hook 'c-mode-common-hook (lambda ()  (c-set-style "linux")))               ;; set C coding style to linux kernel style
+(setq c-default-style '((java-mode . "java")
+                        (awk-mode . "awk")
+                        (c-mode . "k&r")
+                        (c++-mode . "stroustrup")
+                        (other . "linux")))                                     ;; set code style
+(setq-default c-basic-offset 8)                                                 ;; indent width
+(add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))                            ;; c++ mode enable for header files
 (add-hook 'before-save-hook 'delete-trailing-whitespace)                        ;; remove whitespace before save buffer
+(global-rainbow-delimiters-mode)
 (require 'jerry-calendar)							;; calendar
 (require 'linum+)                                                               ;; Dynamic line-number at left
 ;; (global-linum-mode t)                                                        ;; *DISABLE* global line number
@@ -27,6 +34,10 @@
 (require 'multifiles)                                                           ;; will sync back to original file when you close it
 (global-set-key (kbd "M-!") 'mf/mirror-region-in-multifile)                     ;; bind to "ALT+!"
 
+;; smooth-scrolling  ===========================================================
+(require-package 'smooth-scrolling)
+(require 'smooth-scrolling)
+
 ;; guide-key ===================================================================
 ;; (require-package 'guide-key)
 ;; (require 'guide-key)
@@ -36,22 +47,22 @@
 (setq guide-key/popup-window-position 'bottom)
 ;;(setq guide-key/guide-key-sequence '("C-x"))
 ;;(setq guide-key/recursive-key-sequence-flag t)
-(guide-key-mode 1)                                                              ;; Enable guide-key-mode
+(guide-key-mode t)                                                              ;; Enable guide-key-mode
 
 ;; dash-at-point ===============================================================
 (when *is-a-mac*
   (if (file-exists-p "/Applications/Dash.app")
       (progn (require-package 'dash-at-point)
              (require 'dash-at-point))
-    (message "Dash Not *INSTALLED* !")))                                        ;; search the word at point with Dash witch only work in Mac OS
+    (message "Dash Not *INSTALLED* !")))                                        ;; search the word at point with Dash witch only work at Mac OS
 
 ;; pangu-spacing ===============================================================
 (require-package 'pangu-spacing)						;; add space between chinese and english
 (require 'pangu-spacing)
-(global-pangu-spacing-mode 1)
+(global-pangu-spacing-mode t)
 
 ;; rect-mark ===================================================================
-(require-package 'rect-mark)                                                    ;; rect-mark C-x r C-@ 时能显示矩阵
+(require-package 'rect-mark)                                                    ;; rect-mark C-x r C-@ will show region
 (require 'rect-mark)
 (add-hook 'picture-mode-hook 'rm-example-picture-mode-bindings)
 (define-key ctl-x-map "r\C-@" 'rm-set-mark)                                     ;; for rect-mark
@@ -71,15 +82,15 @@
 (setq fci-rule-width 2)
 (setq fci-rule-color "#272822")                                                 ;; set for x window
 (setq fci-always-use-textual-rule nil)                                          ;; always use textual rule
-;;(setq fci-handle-truncate-lines nil)                                          ;; set truncate-lines to true so don't use fci to handle it
+;; (setq fci-handle-truncate-lines nil)                                          ;; set truncate-lines to true so don't use fci to handle it
 (setq line-move-visual t)                                                       ;; move-live step by line
 
 (define-globalized-minor-mode global-fci-mode fci-mode
   (lambda ()
-    (fci-mode 1)
+    (fci-mode t)
     (setq line-move-visual t)                                                   ;; move-live step by line
     ))
-(global-fci-mode 1)                                                             ;; enable fci-mode as a global-minor-mode
+(global-fci-mode t)                                                             ;; enable fci-mode as a global-minor-mode
 
 ;; ag ==========================================================================
 (require-package 'ag)                                                           ;; ag is faster than ack (witch is faster then grep)
@@ -122,7 +133,7 @@
 
 ;; C typedef message ===========================================================
 (require-package 'ctypes)                                                       ;; highlight the variable of typedef for C
-(ctypes-auto-parse-mode 1)
+(ctypes-auto-parse-mode t)
 
 ;; quick-jump ==================================================================
 ;;el-get;;(require 'quick-jump)                                                 ;; quick-jump mode
@@ -142,7 +153,7 @@
 ;; xmsi-math-symbols-input =====================================================
 (autoload 'xmsi-mode "xmsi-math-symbols-input"
   "Load xmsi minor mode for inputting math (Unicode) symbols." t)
-(xmsi-mode 1)									;; use shift+space to show math symbols
+(xmsi-mode t)									;; use shift+space to show math symbols
 
 ;; window-number ===============================================================
 (require-package 'window-number)                                                ;; jump to specific window Alt+1 2 3 4 ...
@@ -151,13 +162,13 @@
  numbers with the C-x C-j prefix.  Another mode,
  `window-number-meta-mode' enables the use of the M- prefix."
   t)
-(window-number-mode 1)
+(window-number-mode t)
 (autoload 'window-number-meta-mode "window-number"
   "A global minor mode that enables use of the M- prefix to select
  windows, use `window-number-mode' to display the window numbers in
  the mode-line."
   t)
-(window-number-meta-mode 1)
+(window-number-meta-mode t)
 
 ;; golden-ratio ================================================================
 (require-package 'golden-ratio)                                                 ;; resizing automatically the windows to "Golden Ratio".
@@ -180,19 +191,14 @@
 ;; (add-to-list 'auto-mode-alist '("\\.S\\'" . asm-mode))
 ;; (setq asm-comment-char ?\#)
 (defun arm-asm-mode-hook ()
-  ;; asm files ending in .S are usually arm assembler
-  (when (string-match ".S$" (buffer-file-name))
-    ;; Get the newlines right
-    ;; `newline-and-indent' calls `indent-line-function'
-    (set (make-local-variable 'indent-line-function) 'indent-relative)
-    (define-key asm-mode-map "\C-m" 'newline-and-indent)
-    ;; Get the comments right
-    (setq comment-column 30)))
+  (when (string-match ".S$" (buffer-file-name))                                 ;; asm files ending in .S are usually arm assembler
+    (set (make-local-variable 'indent-line-function) 'indent-relative)          ;; Get the newlines right
+    (define-key asm-mode-map "\C-m" 'newline-and-indent)                        ;; `newline-and-indent' calls `indent-line-function'
+    (setq comment-column 30)))                                                  ;; Get the comments right
 (add-hook 'asm-mode-hook 'arm-asm-mode-hook)
 (defun arm-asm-mode-set-comment-hook ()
   (when (string-match ".S$" (buffer-file-name))
-    ;; asm files ending in .S are usually arm assembler
-    (setq asm-comment-char ?@)))
+    (setq asm-comment-char ?@)))                                                ;; asm files ending in .S are usually arm assembler
 (add-hook 'asm-mode-set-comment-hook 'arm-asm-mode-set-comment-hook)
 
 ;; ggtags ======================================================================
@@ -201,7 +207,7 @@
           (lambda ()
             (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
               (require 'ggtags)
-              (ggtags-mode 1))))
+              (ggtags-mode t))))
 
 ;; myfunctions =================================================================
 (require 'collectfunctions)                                                     ;; collected functions

@@ -37,7 +37,7 @@
 ;; (require 'hippie-expand-extend)						;; build int code completion
 
 (if (executable-find "irony-server")
-    (require 'irony-extend)							;; irony-mode first consider
+    (require 'irony-extend)							;; irony-mode first considered
   (if (executable-find "clang-complete")
       (progn
 	(setq clang-completion-async-detect t)					;; auto-complete-clang-async
@@ -49,10 +49,10 @@
 
 (when (and (executable-find "rc")
 	   (executable-find "rdm"))
-  (require 'rtags-extend))							;; dynamic code browser tag tool
+  (require 'rtags-extend))							;; dynamic code browse tag tool
 
 ;;------------------------------------------------------------------------------
-;; other "extend/lisp"
+;; Other "extend/lisp"
 ;;------------------------------------------------------------------------------
 (require 'misc-extend)								;; misc mode and settings
 (require 'binding-extend)							;; keybindings
