@@ -9,7 +9,6 @@
                         (c-mode . "k&r")
                         (c++-mode . "stroustrup")
                         (other . "linux")))                                     ;; set code style
-(setq-default c-basic-offset 8)                                                 ;; indent width
 (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))                            ;; c++ mode enable for header files
 (add-hook 'before-save-hook 'delete-trailing-whitespace)                        ;; remove whitespace before save buffer
 (global-rainbow-delimiters-mode)

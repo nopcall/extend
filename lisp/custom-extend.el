@@ -28,17 +28,17 @@
  '(delete-old-versions t)
  ;; tab width setting ----------------------------------------------------------
  '(indent-tabs-mode t)
- ;; '(default-tab-width 8 t)							;; tab 8 chars
- ;; '(c-argdecl-indent 8)
+ '(default-tab-width 8 t)							;; tab 8 chars
+ '(c-argdecl-indent 8)
  '(c-basic-offset 8)
- ;; '(c-brace-offset -8)
- ;; '(c-continued-statement-offset 8)
- ;; '(c-indent-level 8)
- ;; '(c-label-offset -8)
- ;; '(sgml-basic-offset 4)
- ;; '(css-indent-level 8)
- ;; '(js-indent-level 8 t)
- ;; '(js2-basic-offset 8 t)
+ '(c-brace-offset -8)
+ '(c-continued-statement-offset 8)
+ '(c-indent-level 8)
+ '(c-label-offset -8)
+ '(sgml-basic-offset 4)
+ '(css-indent-level 8)
+ '(js-indent-level 8 t)
+ '(js2-basic-offset 8 t)
  ;; ispell ---------------------------------------------------------------------
  '(ispell-program-name "aspell")						;; aspell replace with ispell
  '(ispell-extra-args '("--reverse"))						;; fix bug when aspell with ispell
