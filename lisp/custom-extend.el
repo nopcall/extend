@@ -36,9 +36,9 @@
  '(c-indent-level 8)
  '(c-label-offset -8)
  '(sgml-basic-offset 4)
- '(css-indent-level 8)
- '(js-indent-level 8 t)
- '(js2-basic-offset 8 t)
+ '(css-indent-level 4)
+ '(js-indent-level 4 t)
+ '(js2-basic-offset 4 t)
  ;; ispell ---------------------------------------------------------------------
  '(ispell-program-name "aspell")						;; aspell replace with ispell
  '(ispell-extra-args '("--reverse"))						;; fix bug when aspell with ispell
