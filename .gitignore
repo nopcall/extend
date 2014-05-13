@@ -1,5 +1,5 @@
 secret-extend.el
-.persp-saves/*
+.persp-saves
 .projectile-bookmarks.eld
 \#*
 .*.lock
