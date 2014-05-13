@@ -48,13 +48,6 @@
 ;;(setq guide-key/recursive-key-sequence-flag t)
 (guide-key-mode t)                                                              ;; Enable guide-key-mode
 
-;; dash-at-point ===============================================================
-(when *is-a-mac*
-  (if (file-exists-p "/Applications/Dash.app")
-      (progn (require-package 'dash-at-point)
-             (require 'dash-at-point))
-    (message "Dash Not *INSTALLED* !")))                                        ;; search the word at point with Dash witch only work at Mac OS
-
 ;; pangu-spacing ===============================================================
 (require-package 'pangu-spacing)						;; add space between chinese and english
 (require 'pangu-spacing)
