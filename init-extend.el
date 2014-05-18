@@ -31,21 +31,15 @@
 ;; Code  "extend/lisp/code"
 ;;------------------------------------------------------------------------------
 (require 'mode-detect-extend)							;; which mode should enable for file
+(require 'flycheck-extend)							;; flycheck customized
 (require 'yasnippet-extend)							;; code snippet
 (require 'company-extend)							;; *Company* code completion
 (require 'ac-extend)								;; *Auto Complete* code completion
 ;; (require 'hippie-expand-extend)						;; build int code completion
 
-(if (executable-find "irony-server")
-    (require 'irony-extend)							;; irony-mode first considered
-  (if (executable-find "clang-complete")
-      (progn
-	(setq clang-completion-async-detect t)					;; auto-complete-clang-async
-	(require 'ac-clang-extend))
-    (progn
-      (setq clang-completion-async-detect nil)					;; auto-complete-clang
-      (require 'ac-clang-extend)))
-  )										;; dynamic c/c++ completion
+(if (executable-find "~/Bin/irony-server")
+    (require 'irony-extend)							;; irony-mode at first considered
+  (require 'ac-clang-extend))							;; dynamic c/c++ completion
 
 (when (and (executable-find "rc")
 	   (executable-find "rdm"))
