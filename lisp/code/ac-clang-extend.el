@@ -2,6 +2,10 @@
 ;;; Commentary:
 ;;;
 ;;; Code:
+
+(if (executable-find "clang-complete")
+    (setq clang-completion-async-detect t))					;; auto-complete-clang
+
 (if clang-completion-async-detect
     (progn
       (require-package 'auto-complete-clang-async)
@@ -14,23 +18,15 @@
       (defun my-ac-config ()
 	(add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
 	(add-hook 'auto-complete-mode-hook 'ac-common-setup)
-	(global-auto-complete-mode t))
-      (message "Using *auto-complete-clang-async* for you C/C++.")
-      )										;; clang-async
+	(global-auto-complete-mode t)
+	)
+      (message "Using *Auto-Complete-Clang-*Async** for you C/C++."))		;; clang-async
 
   (progn
     (require-package 'auto-complete-clang)
     (require 'auto-complete-clang)
-    ;; (setq command "echo | g++ -v -x c++ -E - 2>&1 |
-    ;;              grep -A 20 starts | grep include | grep -v search")
-    (setq command "/usr/include/c++/4.8
-		/usr/include/x86_64-linux-gnu/c++/4.8
-		/usr/include/c++/4.8/backward
-		/usr/lib/gcc/x86_64-linux-gnu/4.8/include
-		/usr/local/include
-		/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed
-		/usr/include/x86_64-linux-gnu
-		/usr/include")
+    (setq command "echo | g++ -v -x c++ -E - 2>&1 |
+                 grep -A 20 starts | grep include | grep -v search")
     (setq ac-clang-flags
 	  (mapcar (lambda (item)
 		    (concat "-I" item))
@@ -43,7 +39,7 @@
       (add-hook mode-hook
 		(lambda ()
 		  (add-to-list 'ac-sources 'ac-source-clang))))
-    (message "Using *auto-complete-clang* for you C/C++."))			;; clang
+    (message "Using *Auto-Complete-Clang* for you C/C++."))			;; clang
   )
 
 (defun ome-pkg-config-enable-clang-flag (pkg-config-lib)
