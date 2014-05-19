@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;;	company-mode config
 ;;; Code:
+
 (require-package 'company)							;; company-mode
 (autoload 'company-mode "company" nil t)
 (setq company-idle-delay nil)							;; auto display match item but it's slow.
@@ -22,7 +23,6 @@
 (add-hook 'after-init-hook 'global-company-mode)				;; enable in all buffer;
 (global-set-key (kbd "<s-tab>") 'company-complete-common)			;; super + tab
 
-
 (custom-set-faces
 ;; '(company-preview   ((t (:foreground "darkgray" :underline t))))
 ;; '(company-preview-common   ((t (:inherit company-preview))))
@@ -31,5 +31,6 @@
 ;; '(company-tooltip-common   ((((type x)) (:inherit company-tooltip :weight bold))    (t (:inherit company-tooltip))))
 ;; '(company-tooltip-common-selection   ((((type x)) (:inherit company-tooltip-selection :weight bold))    (t (:inherit company-tooltip-selection))))
  )
+
 (provide 'company-extend)
 ;;; company-extend ends here
