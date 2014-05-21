@@ -55,7 +55,7 @@ completionable by auto-complete-clang"
 ;;(ome-pkg-config-enable-clang-flag "QtGui")
 
 (defun ac-cc-mode-setup ()
-  (setq ac-clang-complete-executable "~/Bin/clang-complete")
+  (setq ac-clang-complete-executable "clang-complete")
   (setq ac-sources '(ac-source-clang-async))
   (ac-clang-launch-completion-process))
 

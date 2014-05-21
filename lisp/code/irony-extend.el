@@ -15,14 +15,14 @@
 (defun qt5-irony ()
   "Enable Qt library for buffer then make it local"
   (interactive)
-  (when (not (boundp 'qt-include-path-prefix))
-    (setq qt-include-path-prefix "/home/Data/Qt5.2.1/5.2.1/gcc_64/include"))	;; set Qt library path unless it's been defined
-  (when (file-exists-p qt-include-path-prefix)
+  (when (not (boundp 'irony-qt-include-path-prefix))
+    (setq irony-qt-include-path-prefix "/home/Data/Qt5.3.0/5.3/gcc_64/include"))	;; set Qt library path unless it's been defined
+  (when (file-exists-p irony-qt-include-path-prefix)
     (setq irony-libclang-additional-flags
 	  (append
 	   (mapcar (lambda (include-dirs) (concat "-I" include-dirs))
-		   (directory-files qt-include-path-prefix t "\\w+"))
-	   (split-string (concat "-I" qt-include-path-prefix))
+		   (directory-files irony-qt-include-path-prefix t "\\w+"))
+	   (split-string (concat "-I" irony-qt-include-path-prefix))
 	   irony-libclang-additional-flags)))
   ;; (push "-code-completion-macros" irony-libclang-additional-flags)
   ;; (push "-code-completion-patterns" irony-libclang-additional-flags)

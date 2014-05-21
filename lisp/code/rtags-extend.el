@@ -5,6 +5,7 @@
 (add-to-list 'load-path "~/git_projects/rtags/src")
 (add-to-list 'load-path "~/git_projects/rtags/bin")		;; for rdm daemon
 (require 'rtags)
+(require 'company-rtags)
 
 (rtags-enable-standard-keybindings c-mode-base-map)
 

@@ -9,20 +9,9 @@
 (setq ac-use-menu-map t)							;; use C-n and C-p to move selection
 ;; (setq ac-dwim t)								;; dwim - "do what i mean"
 (setq ac-quick-help-delay 0.5)
-;; (setq ac-auto-start 4)								;; start complete after input n characters
-;; (setq ac-quick-help-height 60)
-;; (ac-clear-dictionary-cache)
-;; (ac-flyspell-workaround)
-;; (setq ac-disable-inline t)
-;; (setq ac-candidate-menu-min 0)						;; the min number of candidates to show complete menu
 
 (ac-set-trigger-key "TAB")
 (define-key ac-completing-map (kbd "M-RET") 'ac-help)
-
-;; (custom-set-faces
-;;  '(ac-candidate-face   ((t (:background "yellow" :foreground "black" :underline "darkgray"))))
-;;  '(ac-selection-face   ((t (:background "steelblue"))))
-;;  )										;; change auto-complete condidate menu color
 
 (provide 'ac-extend)
 ;;; ac-extend.el ends here

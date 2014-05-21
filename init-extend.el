@@ -37,7 +37,7 @@
 (require 'ac-extend)								;; *Auto Complete* code completion
 ;; (require 'hippie-expand-extend)						;; build int code completion
 
-(if (executable-find "~/Bin/irony-server")
+(if (executable-find "irony-server")
     (require 'irony-extend)							;; irony-mode at first considered
   (require 'ac-clang-extend))							;; dynamic c/c++ completion
 
@@ -48,7 +48,7 @@
 ;;------------------------------------------------------------------------------
 ;; Other "extend/lisp"
 ;;------------------------------------------------------------------------------
-(require 'misc-extend)								;; misc mode and settings
+(require 'misc-extend)								;; misc settings
 (require 'binding-extend)							;; keybindings
 (require 'custom-extend)
 (ignore-errors (require 'secret-extend))

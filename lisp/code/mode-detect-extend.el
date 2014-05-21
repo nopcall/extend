@@ -7,7 +7,6 @@
 
 ;; vimrc-mode  =================================================================
 (require-package 'vimrc-mode)                                                   ;; highlight mode for vimrc file
-(require 'vimrc-mode)
 (add-to-list 'auto-mode-alist '(".vim\\(rc\\)?$" . vimrc-mode))                 ;; .vim*
 (add-to-list 'auto-mode-alist '("pentadactyl\\(rc\\)?$" . vimrc-mode))          ;; also pentadactylrc file
 (add-to-list 'auto-mode-alist '("penta\\(rc\\)?$" . vimrc-mode))                ;; also pentadactylrc file

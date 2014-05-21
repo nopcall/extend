@@ -14,7 +14,7 @@
  '(auto-image-file-mode t)							;; display image
  '(echo-keystrokes 0.1)								;; show pressed key after 0.1 second
  ;; '(save-interprogram-paste-before-kill nil)					;; set for iClipboard in Mac
- '(gc-cons-threshold 20000000)							;; Garbage collect optimization
+ '(gc-cons-threshold 60000000)							;; Garbage collect optimization
  '(garbage-collection-messages t)
  ;; Backup setting -------------------------------------------------------------
  ;; '(make-backup-files t)							;; Enable backup
