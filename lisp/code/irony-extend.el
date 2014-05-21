@@ -50,7 +50,7 @@ append `PKG-CONFIG-LIB' to `irony-libclang-additional-flags'"
   (when (member major-mode irony-known-modes)					;; avoid enabling irony-mode in modes that inherits c-mode, e.g: php-mode
     ;; (setq ac-sources nil)							;; uncomment if other ac-sources are too annoying
     (irony-mode t)
-    (define-key irony-mode-map (kbd "<s-tab>") 'ac-complete-irony)))		;; enable irony-mode
+    (define-key irony-mode-map (kbd "M-RET") 'ac-complete-irony)))		;; enable irony-mode
 
 (add-hook 'c++-mode-hook 'enable-irony-mode-extend)
 (add-hook 'c-mode-hook 'enable-irony-mode-extend)
