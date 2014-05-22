@@ -12,7 +12,7 @@
 
 (setq irony-cdb-cmake-generator "Ninja")					;; Use Ninja (http://martine.github.io/ninja/) instead of classic Makefiles
 
-(defun qt5-irony ()
+(defun qt-irony ()
   "Enable Qt library for buffer then make it local"
   (interactive)
   (when (not (boundp 'irony-qt-include-path-prefix))
