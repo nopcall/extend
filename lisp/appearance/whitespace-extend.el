@@ -7,13 +7,14 @@
       '(
         ;; (tab-mark 9 [166 9] [8614 9] [92 9])                                    ;; 9 TAB, 166[¦] 8614[↦] 92[\]
         ;; (space-mark 32 [183] [46])                                              ;; 32 SPACE, 183[·] 46[.]
-        (newline-mark 10 [8617 10])                                             ;; 10 Return, 9166[⏎] 8629 [↵] 8617[↩]
+        ;; (newline-mark 10 [8617 10])                                             ;; 10 Return, 9166[⏎] 8629 [↵] 8617[↩]
  	))
 
 (eval-after-load "whitespace"
   `(defun whitespace-post-command-hook ()
      "Hack whitespace, it's very slow in c++-mode."))
 (global-whitespace-mode t)
+
 (custom-set-faces
  ;; '(whitespace-space ((t (:bold t :foreground "gray75"))))
  ;; '(whitespace-empty ((t (:foreground "firebrick" :background "SlateGray1"))))
