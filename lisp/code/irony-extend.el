@@ -24,8 +24,8 @@
 		   (directory-files irony-qt-include-path-prefix t "\\w+"))
 	   (split-string (concat "-I" irony-qt-include-path-prefix))
 	   irony-libclang-additional-flags)))
-  ;; (push "-code-completion-macros" irony-libclang-additional-flags)
-  ;; (push "-code-completion-patterns" irony-libclang-additional-flags)
+  (push "-code-completion-macros" irony-libclang-additional-flags)
+  (push "-code-completion-patterns" irony-libclang-additional-flags)
   (make-variable-buffer-local 'irony-libclang-additional-flags)
   (irony-reload-flags))
 
