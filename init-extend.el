@@ -25,7 +25,7 @@
 (require 'ido-extend)
 (require 'popwin-extend)
 (require 'perspective-extend)
-(require 'auto-highlight-symbol-config)
+;; (require 'auto-highlight-symbol-config)
 
 ;;------------------------------------------------------------------------------
 ;; Code  "extend/lisp/code"
