@@ -3,7 +3,8 @@
 ;;;	Theme config for emacs
 ;;; Code:
 (require-package 'zenburn-theme)
-(require-package 'color-theme-solarized)
+(require-package 'solarized-theme)
+;; (require-package 'color-theme-solarized)
 
 (setq window-system-default-frame-alist
       '(
@@ -35,9 +36,9 @@
 ;;; custom setting
 ;;;===========================================================================
 (custom-set-variables
- '(custom-enabled-themes '(zenburn))
- ;; '(custom-enabled-themes '(solarized-dark))
- )
+ ;; '(custom-enabled-themes '(zenburn))
+ '(custom-enabled-themes '(solarized-light))
+)
 
 (custom-set-faces
  '(cursor ((t (:background "#d33682"))))
