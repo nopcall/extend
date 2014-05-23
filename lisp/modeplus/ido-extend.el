@@ -13,8 +13,8 @@
       ido-use-filename-at-point nil
       ido-max-prospects 10)
 
-;; (require-package 'flx-ido)							;; Try out flx-ido for better flex matching between words
-;; (flx-ido-mode 1)
+(require-package 'flx-ido)							;; Try out flx-ido for better flex matching between words
+(flx-ido-mode 1)
 
 (require-package 'ido-vertical-mode)						;; flx-ido looks better with ido-vertical-mode
 (ido-vertical-mode)
