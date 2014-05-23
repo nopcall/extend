@@ -54,16 +54,16 @@
 (global-pangu-spacing-mode t)
 
 ;; rect-mark ===================================================================
-(require-package 'rect-mark)                                                    ;; rect-mark C-x r C-@ will show region
-(require 'rect-mark)
-(add-hook 'picture-mode-hook 'rm-example-picture-mode-bindings)
-(define-key ctl-x-map "r\C-@" 'rm-set-mark)                                     ;; for rect-mark
-(define-key ctl-x-map [?r ?\C-\\ ] 'rm-set-mark)                                ;; C-x r C-\
-(define-key ctl-x-map [?r ?\C-z ] 'rm-set-mark)                                 ;; C-x r C-z
-(define-key ctl-x-map "r\C-x" 'rm-exchange-point-and-mark)
-(define-key ctl-x-map "r\C-w" 'rm-kill-region)
-(define-key ctl-x-map "r\M-w" 'rm-kill-ring-save)
-(define-key global-map [S-down-mouse-1] 'rm-mouse-drag-region)
+;; (require-package 'rect-mark)                                                    ;; rect-mark C-x r C-@ will show region
+;; (require 'rect-mark)
+;; (add-hook 'picture-mode-hook 'rm-example-picture-mode-bindings)
+;; (define-key ctl-x-map "r\C-@" 'rm-set-mark)                                     ;; for rect-mark
+;; (define-key ctl-x-map [?r ?\C-\\ ] 'rm-set-mark)                                ;; C-x r C-\
+;; (define-key ctl-x-map [?r ?\C-z ] 'rm-set-mark)                                 ;; C-x r C-z
+;; (define-key ctl-x-map "r\C-x" 'rm-exchange-point-and-mark)
+;; (define-key ctl-x-map "r\C-w" 'rm-kill-region)
+;; (define-key ctl-x-map "r\M-w" 'rm-kill-ring-save)
+;; (define-key global-map [S-down-mouse-1] 'rm-mouse-drag-region)
 
 ;; Tabbar-mode =================================================================
 ;; (require-package 'tabbar)
@@ -122,10 +122,6 @@
 
 ;; welcome message =============================================================
 ;; (require 'scratch-conf)
-
-;; C typedef message ===========================================================
-(require-package 'ctypes)                                                       ;; highlight the variable of typedef for C
-(ctypes-auto-parse-mode t)
 
 ;; quick-jump ==================================================================
 ;;el-get;;(require 'quick-jump)                                                 ;; quick-jump mode
