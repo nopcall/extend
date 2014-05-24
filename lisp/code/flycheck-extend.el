@@ -1,4 +1,8 @@
-;;; delete lisp warning
+;; color on mode line
+(require-package 'flycheck-color-mode-line)
+(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode)
+
+;; delete lisp warning
 (eval-after-load 'flycheck '(setq flycheck-checkers
 				  (delq 'emacs-lisp-checkdoc flycheck-checkers)))
 
