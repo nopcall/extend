@@ -163,17 +163,17 @@
 (golden-ratio-mode t)
 
 ;; sr-speedbar =================================================================
-(require-package 'sr-speedbar)
-(defadvice sr-speedbar-open (around ome-sr-speedbar-open disable)
-  ad-do-it
-  (with-current-buffer sr-speedbar-buffer-name
-    (setq window-size-fixed 'width)))
-(defun ome-sr-speedbar-setup ()
-  (ad-enable-advice 'sr-speedbar-open 'around 'ome-sr-speedbar-open)
-  (ad-activate 'sr-speedbar-open)
-  (setq sr-speedbar-skip-other-window-p t)
-  (setq sr-speedbar-right-side nil))                                            ;; keep speedbar window width after resizing
-(require 'sr-speedbar)
+;; (require-package 'sr-speedbar)
+;; (defadvice sr-speedbar-open (around ome-sr-speedbar-open disable)
+;;   ad-do-it
+;;   (with-current-buffer sr-speedbar-buffer-name
+;;     (setq window-size-fixed 'width)))
+;; (defun ome-sr-speedbar-setup ()
+;;   (ad-enable-advice 'sr-speedbar-open 'around 'ome-sr-speedbar-open)
+;;   (ad-activate 'sr-speedbar-open)
+;;   (setq sr-speedbar-skip-other-window-p t)
+;;   (setq sr-speedbar-right-side nil))                                            ;; keep speedbar window width after resizing
+;; (require 'sr-speedbar)
 
 ;; asm-mode =====================================================================
 ;; (add-to-list 'auto-mode-alist '("\\.S\\'" . asm-mode))
@@ -190,12 +190,12 @@
 (add-hook 'asm-mode-set-comment-hook 'arm-asm-mode-set-comment-hook)
 
 ;; ggtags ======================================================================
-(require-package 'ggtags)                                                       ;; GNU/global frontend
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-              (require 'ggtags)
-              (ggtags-mode t))))
+;; (require-package 'ggtags)                                                       ;; GNU/global frontend
+;; (add-hook 'c-mode-common-hook
+;;           (lambda ()
+;;             (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+;;               (require 'ggtags)
+;;               (ggtags-mode t))))
 
 ;; myfunctions =================================================================
 (require 'collectfunctions)                                                     ;; collected functions

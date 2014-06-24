@@ -12,7 +12,7 @@
 ;;------------------------------------------------------------------------------
 ;; Appearance "extend/lisp/appearance"
 ;;------------------------------------------------------------------------------
-(require 'themes-extend)							;; theme
+;; (require 'themes-extend)							;; theme
 (require 'fonts-extend)								;; fonts
 (require 'platform-extend)							;; specific platform settings
 (require 'whitespace-extend)							;; show invisible symbol
@@ -37,9 +37,9 @@
 (require 'ac-extend)								;; *Auto Complete* code completion
 ;; (require 'hippie-expand-extend)						;; build int code completion
 
-(if (executable-find "irony-server")
-    (require 'irony-extend)							;; irony-mode at first considered
-  (require 'ac-clang-extend))							;; dynamic c/c++ completion
+(require 'irony-extend)								;; irony-mode at first considered
+;; (require 'irony-rewrite-extend)							;; irony-mode rewrite at first considered
+;; (require 'ac-clang-extend)							;; dynamic c/c++ completion
 
 (when (and (executable-find "rc")
 	   (executable-find "rdm"))

@@ -55,7 +55,7 @@ append `PKG-CONFIG-LIB' to `irony-libclang-additional-flags'"
 (add-hook 'c++-mode-hook 'enable-irony-mode-extend)
 (add-hook 'c-mode-hook 'enable-irony-mode-extend)
 
-(message "Using *auto-complete-clang* for you C/C++.")
+(message "Using *Irony-mode* for you C/C++.")
 
 (provide 'irony-extend)
 ;;; irony-extend.el ends here

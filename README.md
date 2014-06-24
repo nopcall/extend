@@ -1,5 +1,7 @@
 # Extend for [purcell/emacs.d](https://github.com/purcell/emacs.d)
 
+# DO *NOT* MAINTAIN ANYMORE CHECK OUT [pfm-emacs](https://github.com/nopcall/pfm-emacs)
+
 ## Installation
 
 1. Clone [purcell/emacs.d](https://github.com/purcell/emacs.d) to `~/.emacs.d`
